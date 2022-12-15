@@ -1,0 +1,6 @@
+.btn {
+  background-color: var(--bg-btn);
+  color: var(--text-header-primary);
+  padding: 8px 18px;
+  border-radius: 4px;
+}
