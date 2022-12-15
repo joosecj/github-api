@@ -1,0 +1,16 @@
+header {
+  background-color: var(--bg-primary);
+}
+
+.title-header {
+  color: var(--text-header-primary);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+
+@media (min-width: 700px) {
+  .title-header {
+    font-size: 1.5rem;
+  }
+}
