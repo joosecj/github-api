@@ -32,3 +32,11 @@ a, a:hover {
   margin: 0 auto;
   padding: 15px 40px;
 }
+
+.mr-top {
+  margin-top: 10px;
+}
+
+.mr-bottom {
+  margin-bottom: 10px;
+}

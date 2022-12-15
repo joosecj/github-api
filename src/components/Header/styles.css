@@ -2,7 +2,7 @@ header {
   background-color: var(--bg-primary);
 }
 
-.title-header {
+.title-header h1 {
   color: var(--text-header-primary);
   font-size: 1rem;
   font-weight: 500;
@@ -10,7 +10,7 @@ header {
 
 
 @media (min-width: 700px) {
-  .title-header {
+  .title-header h1 {
     font-size: 1.5rem;
   }
 }
