@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import ButtonCard from '../../../components/ButtonCard';
 import CardHome from '../../../components/CardHome';
 import './styles.css';
@@ -10,9 +11,10 @@ export default function HomeIndex() {
           <CardHome title="Desafio GitHub" subtitle="DevSuperior - Escola de Programação" />
         </div>
         <div className='container btn-container'>
-          <ButtonCard titleBtn='Começar' />
+          <Link to='/buscar'>
+            <ButtonCard titleBtn='Começar' />
+          </Link>
         </div>
-
       </section>
     </main>
   );

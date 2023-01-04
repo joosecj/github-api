@@ -33,6 +33,10 @@ a, a:hover {
   padding: 15px 40px;
 }
 
+.btn-container {
+  display: flex;
+}
+
 .mr-top {
   margin-top: 10px;
 }
