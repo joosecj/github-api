@@ -6,8 +6,8 @@ type Props = {
 
 export default function ButtonCard({ titleBtn }: Props) {
   return (
-    <div className='btn'>
+    <button className='btn' type='submit'>
       {titleBtn}
-    </div>
+    </button>
   ); 
 }
