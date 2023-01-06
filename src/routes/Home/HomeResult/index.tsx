@@ -5,6 +5,7 @@ import * as githubService from '../../../services/github-service';
 import { GitHubDTO } from '../../../moldes/github';
 import { useNavigate } from 'react-router-dom';
 import CardResult from '../../../components/CardResult';
+import NotFound from '../../../components/NotFound';
 
 type FormData = {
   user: string;
@@ -16,6 +17,7 @@ export default function HomeResult() {
   const [formData, setFormData] = useState<FormData>({
     user: '',
   });
+  const [error, setError] = useState();
 
   function handleInputChange(event: any) {
     const value = event.target.value;
@@ -30,13 +32,11 @@ export default function HomeResult() {
         setUserData(response.data);
         console.log(userData);
       })
-      .catch(() => {
-        navigate("/");
+      .catch((error) => {
+        setError(error.response.data);
+        setUserData(undefined);
       }), [formData];
   }
-
-
-
   return (
     <>
       <section className='container-section'>
@@ -60,9 +60,12 @@ export default function HomeResult() {
 
       <section className='container-section'>
         {
-          userData &&
-          <CardResult userDTO={userData} />
+          (userData && <CardResult userDTO={userData} />)
+          || (error && <div className='container-card'>
+            <NotFound title='Erro ao buscar usuário' />
+          </div>)
         }
+
       </section>
     </>
   );
