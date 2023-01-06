@@ -1,14 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ButtonCard from '../../../components/ButtonCard';
 import './styles.css';
+import * as githubService from '../../../services/github-service';
+import { GitHubDTO } from '../../../moldes/github';
+import { useNavigate } from 'react-router-dom';
 
 type FormData = {
-  firstDate: string;
+  user: string;
 }
 
 export default function HomeResult() {
+  const navigate = useNavigate();
+  const [userData, setUserData] = useState<GitHubDTO>();
   const [formData, setFormData] = useState<FormData>({
-    firstDate: '',
+    user: '',
   });
 
   function handleInputChange(event: any) {
@@ -19,9 +24,17 @@ export default function HomeResult() {
 
   function handleFormSubmit(event: any) {
     event.preventDefault();
-    setFormData(formData);
-    console.log(formData);
+      githubService.buscarUsuario(formData.user)
+        .then(response => {
+          setUserData(response.data);
+          console.log(userData);
+        })
+        .catch(() => {
+          navigate("/");
+        }),[formData];
   }
+
+
 
   return (
     <>
@@ -31,8 +44,8 @@ export default function HomeResult() {
           <form onSubmit={handleFormSubmit}>
             <div>
               <input id='inpt'
-                name="firstDate"
-                value={formData.firstDate}
+                name="user"
+                value={formData.user}
                 type="text"
                 onChange={handleInputChange}
               />
@@ -41,8 +54,14 @@ export default function HomeResult() {
               <ButtonCard titleBtn='Encontrar' />
             </div>
           </form>
-
         </div>
+      </section>
+
+      <section>
+        {
+          userData &&
+          userData.avatar_url
+        }
       </section>
     </>
   );
