@@ -41,13 +41,14 @@ export default function HomeResult() {
     <>
       <section className='container-section'>
         <div className='container-card card-form mr-top-card'>
-          <h2 className='mr-bottom'>Encontre um perfil Github</h2>
+          <h2 className='title-home-result mr-bottom'>Encontre um perfil Github</h2>
           <form onSubmit={handleFormSubmit}>
             <div>
               <input id='inpt'
                 name="user"
                 value={formData.user}
                 type="text"
+                placeholder='Digite um usuário'
                 onChange={handleInputChange}
               />
             </div>
@@ -57,7 +58,6 @@ export default function HomeResult() {
           </form>
         </div>
       </section>
-
       <section className='container-section'>
         {
           (userData && <CardResult userDTO={userData} />)

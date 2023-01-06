@@ -39,7 +39,8 @@
   font-size: 0.90rem;
 }
 
-.data-result-container a, .data-result-container a:hover {
+.data-result-container a,
+.data-result-container a:hover {
   color: #0029FF;
 }
 
@@ -57,7 +58,7 @@
 }
 
 .img-result img {
- width: 100%;
+  width: 100%;
 }
 
 .mr-top-left-card-result {
@@ -72,7 +73,7 @@
   .sub-title-card-result {
     font-size: 1.10rem;
   }
-  
+
   .data-result-container p {
     font-size: 1.05rem;
   }
@@ -82,4 +83,3 @@
     margin-left: 30px;
   }
 }
-
