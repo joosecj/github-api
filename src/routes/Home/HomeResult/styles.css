@@ -1,14 +1,12 @@
-.container-buscar-section {
+.container-section {
   padding: 0 20px;
+}
+.card-form {
+  background-color: var(--bg-card-primary-section);
 }
 .container-card {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
   padding: 54px 30px;
-  background-color: var(--bg-card-primary-section);
-}
-
-.mr-top-card {
-  margin-top: 54px;
 }

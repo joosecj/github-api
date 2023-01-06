@@ -4,6 +4,7 @@ import './styles.css';
 import * as githubService from '../../../services/github-service';
 import { GitHubDTO } from '../../../moldes/github';
 import { useNavigate } from 'react-router-dom';
+import CardResult from '../../../components/CardResult';
 
 type FormData = {
   user: string;
@@ -24,22 +25,22 @@ export default function HomeResult() {
 
   function handleFormSubmit(event: any) {
     event.preventDefault();
-      githubService.buscarUsuario(formData.user)
-        .then(response => {
-          setUserData(response.data);
-          console.log(userData);
-        })
-        .catch(() => {
-          navigate("/");
-        }),[formData];
+    githubService.buscarUsuario(formData.user)
+      .then(response => {
+        setUserData(response.data);
+        console.log(userData);
+      })
+      .catch(() => {
+        navigate("/");
+      }), [formData];
   }
 
 
 
   return (
     <>
-      <section className='container-buscar-section'>
-        <div className='container-card mr-top-card'>
+      <section className='container-section'>
+        <div className='container-card card-form mr-top-card'>
           <h2 className='mr-bottom'>Encontre um perfil Github</h2>
           <form onSubmit={handleFormSubmit}>
             <div>
@@ -57,10 +58,10 @@ export default function HomeResult() {
         </div>
       </section>
 
-      <section>
+      <section className='container-section'>
         {
           userData &&
-          userData.avatar_url
+          <CardResult userDTO={userData} />
         }
       </section>
     </>
